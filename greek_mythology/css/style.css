@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+
+#mynetwork {
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.legend {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.9);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}

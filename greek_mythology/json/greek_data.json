@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "id": "chaos",
+      "label": "Chaos",
+      "group": "primordial",
+      "color": "#333",
+      "size": 30
+    },
+    {
+      "id": "gaia",
+      "label": "Gaia",
+      "group": "primordial",
+      "color": "#228B22",
+      "size": 25
+    },
+    {
+      "id": "tartarus",
+      "label": "Tartarus",
+      "group": "primordial",
+      "color": "#228B22",
+      "size": 25
+    },
+    {
+      "id": "nyx",
+      "label": "Nyx",
+      "group": "primordial",
+      "color": "#228B22",
+      "size": 25
+    },
+    {
+      "id": "erebus",
+      "label": "Erebus",
+      "group": "primordial",
+      "color": "#228B22",
+      "size": 25
+    },
+    {
+      "id": "eros",
+      "label": "Eros",
+      "group": "primordial",
+      "color": "#228B22",
+      "size": 25
+    },
+    {
+      "id": "uranus",
+      "label": "Uranus",
+      "group": "primordial",
+      "color": "#87CEEB",
+      "size": 25
+    }
+  ],
+  "edges": [
+    {
+      "from": "chaos",
+      "to": [
+        "gaia",
+        "tartarus",
+        "nyx",
+        "erebus",
+        "eros"
+      ],
+      "label": "Parent",
+      "color": "#333",
+      "arrows": "to"
+    },
+    {
+      "from": "gaia",
+      "to": [
+        "uranus"
+      ],
+      "label": "Mother",
+      "color": "#333",
+      "arrows": "to"
+    },
+    {
+      "from": "gaia",
+      "to": [
+        "uranus"
+      ],
+      "label": "Partner",
+      "color": "#ff66cc",
+      "arrows": ""
+    }
+  ]
+}
