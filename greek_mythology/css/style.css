@@ -23,3 +23,30 @@ html, body {
     border-radius: 10px;
     font-size: 13px;
 }
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* colors */
+.dot.parent {
+    background-color: #0dd847;
+}
+
+.dot.spouse {
+    background-color: #fe03e9;
+}
+
+.dot.affair {
+    background-color: #ff8000;
+}
