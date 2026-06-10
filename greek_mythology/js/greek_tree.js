@@ -3,25 +3,27 @@ console.log("script loaded");
 import { nodes } from "../data/primordial_nodes.js";
 import { edges as allEdges } from "../data/primordial_edges.js";
 
-// Remove duplicate spouse edges (keep only one visual line)
+// Remove duplicate spouse/procreation edges
 const seen = new Set();
 
 const edges = allEdges.filter(e => {
 
-    if (e.type !== "spouse") return true;
+    if (e.type !== "spouse" && e.type !== "procreation") {
+        return true;
+    }
 
-    const key = [e.from, e.to].sort().join("-");
+    const key = [e.from, e.to].sort().join("-") + "-" + e.type;
+
     if (seen.has(key)) return false;
 
     seen.add(key);
     return true;
 });
 
-window.cy = cytoscape({
+window.graph = cytoscape({
     container: document.getElementById("cy"),
 
     elements: [
-        // nodes
         ...nodes.map(n => ({
             data: {
                 id: n.id,
@@ -30,7 +32,6 @@ window.cy = cytoscape({
             }
         })),
 
-        // edges
         ...edges.map((e, i) => ({
             data: {
                 id: "e" + i,
@@ -43,7 +44,6 @@ window.cy = cytoscape({
 
     style: [
 
-        // Node style
         {
             selector: "node",
             style: {
@@ -57,7 +57,6 @@ window.cy = cytoscape({
             }
         },
 
-        // Default edge style
         {
             selector: "edge",
             style: {
@@ -66,13 +65,10 @@ window.cy = cytoscape({
                 "target-arrow-color": "#2f3230",
                 "target-arrow-shape": "triangle",
                 "curve-style": "bezier",
-
-                // Hide labels by default
                 "label": ""
             }
         },
 
-        // Show edge type when selected
         {
             selector: "edge:selected",
             style: {
@@ -96,6 +92,17 @@ window.cy = cytoscape({
             selector: 'edge[type = "spouse"]',
             style: {
                 "line-color": "#fe03e9",
+                "target-arrow-shape": "none",
+                "source-arrow-shape": "none"
+            }
+        },
+
+        // Procreation (lighter pink)
+        {
+            selector: 'edge[type = "procreation"]',
+            style: {
+                "line-color": "#c400ff",
+                "width": 3,
                 "target-arrow-shape": "none",
                 "source-arrow-shape": "none"
             }
