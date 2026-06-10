@@ -43,6 +43,9 @@ html, body {
     background-color: #0dd847;
 }
 
+.dot.procreation {
+    background-color: #c400ff;
+}
 .dot.spouse {
     background-color: #fe03e9;
 }
