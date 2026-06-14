@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
         const root = evt.target;
 
         // Dim everything
-        cy.elements().style("opacity", 0.05);
+        cy.elements().style("opacity", 0.3);
 
         // Collection of elements to highlight
         let highlight = cy.collection();

@@ -1,18 +1,26 @@
 console.log("main loaded");
 
-const BASE = "/Mytholotree/";
+const BASE = window.location.pathname.startsWith("/mytholotree/")
+    ? "/mytholotree/"
+    : "/";
 
 async function loadComponent(id, file) {
     const el = document.getElementById(id);
-    if (!el) return;
+
+    if (!el) {
+        console.warn(`Element #${id} not found`);
+        return;
+    }
 
     try {
-        const url = BASE + "components/" + file;
+        const url = `${BASE}components/${file}`;
+
+        console.log("Loading:", url);
 
         const res = await fetch(url);
 
         if (!res.ok) {
-            throw new Error("Failed: " + url);
+            throw new Error(`Failed: ${url} (${res.status})`);
         }
 
         el.innerHTML = await res.text();
@@ -22,16 +30,7 @@ async function loadComponent(id, file) {
     }
 }
 
-function loadCSS(file) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = BASE + file;
-    document.head.appendChild(link);
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-    loadCSS("main.css");
-
     loadComponent("navbar", "navbar.html");
     loadComponent("footer", "footer.html");
 });
