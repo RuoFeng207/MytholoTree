@@ -62,7 +62,7 @@ body {
 .text_container {
     max-width: 800px;
     min-height: 200px;
-    margin: 0 auto 15px auto;
+    margin: 0 auto;
     padding: 20px;
     background-color: var(--third_color);
     color: var(--text_color);
@@ -79,12 +79,15 @@ footer {
     right: 0
 }
 
-.legend, #authorSelect {
+.legend,
+#authorSelect {
     position: absolute;
     top: 60px;
     left: 20px;
     z-index: 1000;
-    width: 160px;
+    min-width: 120px;
+    width: 15%;
+    box-sizing: border-box;
     background: var(--main_color);
     opacity: 0.9;
     backdrop-filter: blur(6px);
@@ -92,6 +95,10 @@ footer {
     padding: 10px;
     border-radius: 10px;
     font-size: 13px;
+}
+
+#authorSelect {
+    top: 190px;
 }
 
 /* Color */

@@ -1,0 +1,53 @@
+footer {
+    background-color: blue;
+}
+
+@media (max-width: 1200px) {
+    footer {
+        background-color: green;
+    }
+}
+
+@media (max-width: 992px) {
+    footer {
+        background-color: yellow;
+    }
+
+    .text_container {
+        margin: 10px;
+    }
+
+    /* .legend,
+    #authorSelect {
+        top: 60px;
+        left: 20px;
+        width: 160px;
+    }
+
+    #authorSelect {
+        width: 180px;
+        top: 190px;
+    } */
+}
+
+@media (max-width: 768px) {
+    footer {
+        background-color: orange;
+    }
+}
+
+@media (max-width: 576px) {
+    footer {
+        background-color: red;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    p,
+    a {
+        font-size: 15px;
+    }
+
+}
